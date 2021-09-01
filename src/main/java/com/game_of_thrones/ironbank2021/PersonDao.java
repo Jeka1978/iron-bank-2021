@@ -8,6 +8,8 @@ import java.util.List;
  * @author Evgeny Borisov
  */
 public interface PersonDao {
+    void delete(Person person);
+
     void save(Person person);
 
     List<Person> getAllPersons();

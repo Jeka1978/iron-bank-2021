@@ -3,6 +3,8 @@ package com.game_of_thrones.ironbank2021.controllers;
 import com.game_of_thrones.ironbank2021.model.Person;
 import com.game_of_thrones.ironbank2021.services.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,7 +27,8 @@ public class PersonController {
 
     @GetMapping("/all")
     public List<Person> getAllPersons() {
-        return personService.getAllPersons();
+        List<Person> list = personService.getAllPersons();
+        return list;
     }
 }
 
