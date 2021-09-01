@@ -2,8 +2,7 @@ package com.game_of_thrones.ironbank2021.model;
 
 import lombok.*;
 
-import java.beans.ConstructorProperties;
-import java.beans.JavaBean;
+import javax.persistence.*;
 
 /**
  * @author Evgeny Borisov
@@ -13,9 +12,20 @@ import java.beans.JavaBean;
 @AllArgsConstructor
 @NoArgsConstructor
 @With
+@Entity
+//@NamedQuery(name = "getAllpersons",query = "from person p where p.balance>:balance")
 public class Person {
+    @Id
+    @GeneratedValue
+    private int id;
     private String name;
+
+
+    //    @Column(name = "TOTAL_BALANCE")
     private int balance;
 
 
+    public Person(String name) {
+        this.name = name;
+    }
 }
